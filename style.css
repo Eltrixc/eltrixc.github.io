@@ -1,0 +1,118 @@
+
+/* style.css - Research Portfolio Theme */
+:root{
+--bg-1:#020617;
+--bg-2:#0B1026;
+--bg-3:#111827;
+--gold:#D4AF37;
+--cyan:#00D4FF;
+--white:#F8FAFC;
+--glass:rgba(255,255,255,.06);
+--glass-border:rgba(255,255,255,.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:Inter,sans-serif;
+background:linear-gradient(135deg,var(--bg-1),var(--bg-2),var(--bg-3));
+color:var(--white);
+overflow-x:hidden;
+line-height:1.7;
+}
+
+#stars,#particles,.physics-bg,#spotlight{
+position:fixed;inset:0;pointer-events:none;
+}
+#stars{z-index:-5;opacity:.4}
+#particles{z-index:-4}
+.physics-bg{z-index:-3}
+#spotlight{z-index:-2}
+
+.container{max-width:1200px;margin:auto;padding:0 24px}
+
+nav{
+position:fixed;top:0;width:100%;z-index:1000;
+background:rgba(0,0,0,.15);
+backdrop-filter:blur(16px);
+}
+.nav-container{
+max-width:1200px;margin:auto;padding:18px 24px;
+display:flex;justify-content:space-between;align-items:center;
+}
+.logo{color:var(--gold);font-weight:800;font-size:1.5rem}
+nav ul{display:flex;gap:30px;list-style:none}
+nav a{text-decoration:none;color:white}
+
+.hero{
+min-height:100vh;display:flex;align-items:center;
+justify-content:center;text-align:center;padding:100px 20px;
+position:relative;overflow:hidden;
+}
+.hero-content{max-width:850px}
+.hero h1{font-size:5rem}
+.hero h1 span{color:var(--gold)}
+.hero h2{color:var(--cyan);min-height:50px}
+.hero-badge{
+display:inline-block;padding:10px 22px;border-radius:999px;
+background:rgba(255,255,255,.08);
+margin-bottom:25px;
+}
+
+.hero-buttons{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.btn-primary,.btn-secondary{
+padding:14px 30px;border-radius:999px;text-decoration:none
+}
+.btn-primary{background:var(--gold);color:#111}
+.btn-secondary{border:1px solid var(--gold);color:white}
+
+.section{padding:110px 0}
+.section-title{text-align:center;color:var(--gold);margin-bottom:50px}
+
+.glass-card,.stat-card,.skill-card,.project-card,.interest-card,.timeline-content,.contact-card{
+background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+border:1px solid var(--glass-border);
+backdrop-filter:blur(16px);
+border-radius:24px;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.stats-grid,.skills-grid,.interest-grid,.project-grid{
+display:grid;gap:25px;
+}
+.stats-grid{grid-template-columns:repeat(3,1fr)}
+.skills-grid{grid-template-columns:repeat(2,1fr)}
+.interest-grid,.project-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+
+.stat-card,.skill-card,.interest-card,.project-card{padding:30px}
+.contact-card{padding:50px}
+
+.timeline{max-width:900px;margin:auto}
+.timeline-item{margin-bottom:40px}
+.timeline-content{padding:30px}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+.contact-grid a{
+text-decoration:none;color:white;padding:25px;
+background:rgba(255,255,255,.05);
+border-radius:18px;text-align:center;
+}
+
+footer{text-align:center;padding:40px;opacity:.7}
+
+@media(max-width:900px){
+.hero h1{font-size:3.5rem}
+.stats-grid,.skills-grid,.interest-grid,.project-grid,.contact-grid{
+grid-template-columns:1fr;
+}
+}
+
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-thumb{
+background:linear-gradient(180deg,var(--gold),var(--cyan));
+border-radius:20px;
+}
