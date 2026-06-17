@@ -1,11 +1,6 @@
-/* ==========================================
-   RIZKY SETYAWAN PORTFOLIO
-   Corporate Premium Script
-========================================== */
-
-/* ==========================================
-   AOS INIT
-========================================== */
+/* =========================================
+   AOS INITIALIZATION
+========================================= */
 
 AOS.init({
     duration: 1000,
@@ -13,40 +8,56 @@ AOS.init({
     offset: 100
 });
 
-/* ==========================================
+/* =========================================
    TYPING ANIMATION
-========================================== */
+========================================= */
 
-const roles = [
+const typingElement =
+    document.getElementById("typing");
+
+const texts = [
+
     "Research Intern at BRIN",
-    "Laboratory Assistant",
-    "Scientific Data Analyst",
-    "Computational Physics Researcher",
-    "High Performance Computing Enthusiast"
+
+    "Computational Physics Enthusiast",
+
+    "Scientific Computing",
+
+    "Quantum Materials Research",
+
+    "High Performance Computing",
+
+    "Laboratory Assistant"
+
 ];
 
-const typingElement = document.getElementById("typing");
-
-let roleIndex = 0;
+let textIndex = 0;
 let charIndex = 0;
 let deleting = false;
 
-function typeAnimation() {
+function typeEffect() {
 
-    const currentRole = roles[roleIndex];
+    const current =
+        texts[textIndex];
 
     if (!deleting) {
 
         typingElement.textContent =
-            currentRole.substring(0, charIndex + 1);
+            current.substring(
+                0,
+                charIndex + 1
+            );
 
         charIndex++;
 
-        if (charIndex === currentRole.length) {
+        if (charIndex === current.length) {
 
             deleting = true;
 
-            setTimeout(typeAnimation, 1800);
+            setTimeout(
+                typeEffect,
+                1800
+            );
 
             return;
         }
@@ -54,7 +65,10 @@ function typeAnimation() {
     } else {
 
         typingElement.textContent =
-            currentRole.substring(0, charIndex - 1);
+            current.substring(
+                0,
+                charIndex - 1
+            );
 
         charIndex--;
 
@@ -62,25 +76,28 @@ function typeAnimation() {
 
             deleting = false;
 
-            roleIndex =
-                (roleIndex + 1) % roles.length;
+            textIndex =
+                (textIndex + 1) %
+                texts.length;
         }
     }
 
     setTimeout(
-        typeAnimation,
+        typeEffect,
         deleting ? 50 : 90
     );
 }
 
-typeAnimation();
+typeEffect();
 
-/* ==========================================
+/* =========================================
    COUNTER ANIMATION
-========================================== */
+========================================= */
 
 const counters =
-    document.querySelectorAll(".counter");
+    document.querySelectorAll(
+        ".counter"
+    );
 
 const counterObserver =
     new IntersectionObserver(
@@ -89,28 +106,32 @@ const counterObserver =
 
             entries.forEach(entry => {
 
-                if (!entry.isIntersecting) return;
+                if (
+                    !entry.isIntersecting
+                ) return;
 
                 const counter =
                     entry.target;
 
                 const target =
                     parseInt(
-                        counter.getAttribute(
-                            "data-target"
-                        )
+                        counter.dataset.target
                     );
 
                 let current = 0;
 
                 const increment =
-                    Math.ceil(target / 80);
+                    Math.ceil(
+                        target / 80
+                    );
 
-                const updateCounter = () => {
+                const update = () => {
 
                     current += increment;
 
-                    if (current >= target) {
+                    if (
+                        current >= target
+                    ) {
 
                         counter.textContent =
                             target;
@@ -121,33 +142,38 @@ const counterObserver =
                             current;
 
                         requestAnimationFrame(
-                            updateCounter
+                            update
                         );
                     }
                 };
 
-                updateCounter();
+                update();
 
                 counterObserver.unobserve(
                     counter
                 );
+
             });
+
         },
 
         {
             threshold: 0.5
         }
+
     );
 
 counters.forEach(counter => {
 
-    counterObserver.observe(counter);
+    counterObserver.observe(
+        counter
+    );
 
 });
 
-/* ==========================================
-   MOUSE SPOTLIGHT
-========================================== */
+/* =========================================
+   SPOTLIGHT FOLLOW MOUSE
+========================================= */
 
 const spotlight =
     document.getElementById(
@@ -166,16 +192,18 @@ document.addEventListener(
     }
 );
 
-/* ==========================================
+/* =========================================
    ACTIVE NAV LINK
-========================================== */
+========================================= */
 
 const sections =
-    document.querySelectorAll("section");
+    document.querySelectorAll(
+        "section[id]"
+    );
 
 const navLinks =
     document.querySelectorAll(
-        "nav ul li a"
+        "nav a"
     );
 
 window.addEventListener(
@@ -186,20 +214,19 @@ window.addEventListener(
 
         sections.forEach(section => {
 
-            const sectionTop =
+            const top =
                 section.offsetTop;
 
-            const sectionHeight =
-                section.clientHeight;
+            const height =
+                section.offsetHeight;
 
             if (
-                pageYOffset >=
-                sectionTop - 200
+                scrollY >=
+                top - 200
             ) {
+
                 current =
-                    section.getAttribute(
-                        "id"
-                    );
+                    section.id;
             }
         });
 
@@ -223,12 +250,14 @@ window.addEventListener(
     }
 );
 
-/* ==========================================
-   NAVBAR BACKGROUND
-========================================== */
+/* =========================================
+   NAVBAR EFFECT
+========================================= */
 
-const navbar =
-    document.querySelector("nav");
+const nav =
+    document.querySelector(
+        "nav"
+    );
 
 window.addEventListener(
     "scroll",
@@ -238,25 +267,25 @@ window.addEventListener(
             window.scrollY > 50
         ) {
 
-            navbar.style.background =
-                "rgba(0,0,0,0.35)";
+            nav.style.background =
+                "rgba(0,0,0,.35)";
 
-            navbar.style.backdropFilter =
+            nav.style.backdropFilter =
                 "blur(20px)";
 
         } else {
 
-            navbar.style.background =
-                "rgba(0,0,0,0.15)";
+            nav.style.background =
+                "rgba(0,0,0,.15)";
         }
     }
 );
 
-/* ==========================================
+/* =========================================
    HERO PARALLAX
-========================================== */
+========================================= */
 
-const hero =
+const heroContent =
     document.querySelector(
         ".hero-content"
     );
@@ -265,21 +294,26 @@ window.addEventListener(
     "scroll",
     () => {
 
-        const scrolled =
+        const value =
             window.scrollY;
 
-        hero.style.transform =
-            `translateY(${scrolled * 0.15}px)`;
+        heroContent.style.transform =
+            `translateY(${value * 0.12}px)`;
     }
 );
 
-/* ==========================================
-   FLOATING CARDS EFFECT
-========================================== */
+/* =========================================
+   FLOATING CARD EFFECT
+========================================= */
 
 const cards =
     document.querySelectorAll(
-        ".glass-card, .skill-card, .stat-card"
+
+        ".glass-card, \
+         .skill-card, \
+         .interest-card, \
+         .stat-card"
+
     );
 
 cards.forEach(card => {
@@ -292,10 +326,12 @@ cards.forEach(card => {
                 card.getBoundingClientRect();
 
             const x =
-                e.clientX - rect.left;
+                e.clientX -
+                rect.left;
 
             const y =
-                e.clientY - rect.top;
+                e.clientY -
+                rect.top;
 
             const centerX =
                 rect.width / 2;
@@ -304,17 +340,18 @@ cards.forEach(card => {
                 rect.height / 2;
 
             const rotateY =
-                (x - centerX) / 25;
+                (x - centerX) / 20;
 
             const rotateX =
-                (centerY - y) / 25;
+                (centerY - y) / 20;
 
             card.style.transform =
+
                 `
                 perspective(1000px)
                 rotateX(${rotateX}deg)
                 rotateY(${rotateY}deg)
-                translateY(-8px)
+                translateY(-6px)
                 `;
         }
     );
@@ -324,34 +361,35 @@ cards.forEach(card => {
         () => {
 
             card.style.transform =
+
                 `
                 perspective(1000px)
                 rotateX(0deg)
                 rotateY(0deg)
-                translateY(0px)
+                translateY(0)
                 `;
         }
     );
 });
 
-/* ==========================================
-   FADE HERO ON SCROLL
-========================================== */
+/* =========================================
+   HERO FADE
+========================================= */
+
+const hero =
+    document.querySelector(
+        ".hero"
+    );
 
 window.addEventListener(
     "scroll",
     () => {
 
-        const heroSection =
-            document.querySelector(
-                ".hero"
-            );
-
         const opacity =
             1 -
             window.scrollY / 700;
 
-        heroSection.style.opacity =
+        hero.style.opacity =
             Math.max(
                 opacity,
                 0.25
@@ -359,37 +397,101 @@ window.addEventListener(
     }
 );
 
-/* ==========================================
-   PRELOADER EFFECT
-========================================== */
+/* =========================================
+   SCROLL REVEAL FOR TIMELINE
+========================================= */
 
-window.addEventListener(
-    "load",
-    () => {
+const timelineItems =
+    document.querySelectorAll(
+        ".timeline-item"
+    );
 
-        document.body.classList.add(
-            "loaded"
-        );
-    }
-);
+const timelineObserver =
+    new IntersectionObserver(
 
-/* ==========================================
-   CONSOLE EASTER EGG
-========================================== */
+        (entries) => {
 
-console.log(
-`
-====================================
-RIZKY SETYAWAN PORTFOLIO
-====================================
+            entries.forEach(entry => {
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+                    entry.target.classList.add(
+                        "show"
+                    );
+                }
+            });
+
+        },
+
+        {
+            threshold: 0.2
+        }
+
+    );
+
+timelineItems.forEach(item => {
+
+    timelineObserver.observe(
+        item
+    );
+
+});
+
+/* =========================================
+   SMOOTH SCROLL
+========================================= */
+
+document
+.querySelectorAll(
+    'a[href^="#"]'
+)
+
+.forEach(anchor => {
+
+    anchor.addEventListener(
+        "click",
+        function(e) {
+
+            e.preventDefault();
+
+            const target =
+                document.querySelector(
+                    this.getAttribute(
+                        "href"
+                    )
+                );
+
+            if (target) {
+
+                target.scrollIntoView({
+
+                    behavior: "smooth"
+
+                });
+            }
+        }
+    );
+
+});
+
+/* =========================================
+   CONSOLE SIGNATURE
+========================================= */
+
+console.log(`
+=====================================
+
+RIZKY SETYAWAN
+Research Portfolio
 
 Physics Undergraduate
 Research Intern at BRIN
-Laboratory Assistant
 
-Built with:
-HTML + CSS + JavaScript
+Computational Physics
+Scientific Computing
+Quantum Materials
 
-====================================
-`
-);
+=====================================
+`);
