@@ -6,358 +6,143 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rizky Setyawan | Laboratory Analyst</title>
+<title>Rizky Setyawan | Research Portfolio</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="description"
+content="Research Portfolio of Rizky Setyawan">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<style>
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
-/* ===================================
-   Qatar 2022 Inspired Portfolio
-=================================== */
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
-:root{
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
---maroon:#8A1538;
---maroon-dark:#5C0E25;
+<link rel="stylesheet"
+href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
---gold:#D4AF37;
-
---ivory:#F8F4E9;
-
---purple:#3A163F;
-
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-
-font-family:'Poppins',sans-serif;
-
-background:
-linear-gradient(
-135deg,
-var(--maroon-dark),
-var(--maroon),
-var(--purple)
-);
-
-color:var(--ivory);
-
-line-height:1.8;
-
-overflow-x:hidden;
-
-}
-
-/* Decorative pattern */
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-inset:0;
-
-background-image:
-radial-gradient(
-circle,
-rgba(212,175,55,.07) 1px,
-transparent 1px
-);
-
-background-size:40px 40px;
-
-pointer-events:none;
-
-z-index:-1;
-
-}
-
-
-/* ==========================
-Hero
-========================== */
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:40px;
-
-}
-
-.hero-content{
-
-max-width:900px;
-
-}
-
-.hero h1{
-
-font-size:5rem;
-
-font-weight:700;
-
-color:var(--ivory);
-
-margin-bottom:15px;
-
-}
-
-.hero p{
-
-font-size:1.4rem;
-
-opacity:.95;
-
-margin-bottom:30px;
-
-}
-
-.hero-buttons{
-
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
-flex-wrap:wrap;
-
-}
-
-.btn{
-
-padding:14px 28px;
-
-border-radius:40px;
-
-text-decoration:none;
-
-font-weight:600;
-
-transition:.3s;
-
-}
-
-.btn-primary{
-
-background:var(--gold);
-
-color:var(--maroon-dark);
-
-}
-
-.btn-primary:hover{
-
-transform:translateY(-4px);
-
-}
-
-.btn-outline{
-
-border:2px solid var(--gold);
-
-color:var(--ivory);
-
-}
-
-.btn-outline:hover{
-
-background:rgba(255,255,255,.1);
-
-}
-
-
-/* ==========================
-Sections
-========================== */
-
-.container{
-
-max-width:1100px;
-
-margin:auto;
-
-padding:0 20px;
-
-}
-
-.section{
-
-margin-bottom:40px;
-
-}
-
-.card{
-
-background:
-rgba(255,255,255,.08);
-
-backdrop-filter:blur(12px);
-
-border:1px solid rgba(255,255,255,.15);
-
-border-radius:24px;
-
-padding:35px;
-
-}
-
-.section-title{
-
-font-size:2rem;
-
-margin-bottom:20px;
-
-color:var(--gold);
-
-}
-
-
-/* ==========================
-Experience
-========================== */
-
-.timeline-item{
-
-margin-bottom:25px;
-
-}
-
-.timeline-item h3{
-
-color:var(--gold);
-
-margin-bottom:8px;
-
-}
-
-.timeline-item ul{
-
-padding-left:20px;
-
-}
-
-
-/* ==========================
-Skills
-========================== */
-
-.skills-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:20px;
-
-}
-
-.skill-card{
-
-background:
-rgba(255,255,255,.06);
-
-padding:25px;
-
-border-radius:18px;
-
-}
-
-.skill-card h3{
-
-color:var(--gold);
-
-margin-bottom:10px;
-
-}
-
-
-/* ==========================
-Footer
-========================== */
-
-footer{
-
-padding:60px 20px;
-
-text-align:center;
-
-opacity:.8;
-
-}
-
-
-/* ==========================
-Mobile
-========================== */
-
-@media(max-width:768px){
-
-.hero h1{
-
-font-size:3rem;
-
-}
-
-.hero p{
-
-font-size:1.1rem;
-
-}
-
-}
-
-</style>
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
 <body>
 
-<!-- HERO -->
+<!-- =========================
+BACKGROUND
+========================= -->
+
+<div class="physics-bg">
+
+<span>ψ(x,t)</span>
+<span>ℏω</span>
+<span>TDSE</span>
+<span>FFT</span>
+<span>DFT</span>
+<span>ρ(k,t)</span>
+
+</div>
+
+<div id="spotlight"></div>
+
+<!-- =========================
+NAVBAR
+========================= -->
+
+<nav>
+
+<div class="nav-container">
+
+<div class="logo">
+RS
+</div>
+
+<ul>
+
+<li>
+<a href="#about">
+About
+</a>
+</li>
+
+<li>
+<a href="#experience">
+Experience
+</a>
+</li>
+
+<li>
+<a href="#skills">
+Skills
+</a>
+</li>
+
+<li>
+<a href="#contact">
+Contact
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</nav>
+
+<!-- =========================
+HERO
+========================= -->
 
 <section class="hero">
 
 <div class="hero-content">
 
-<h1>Rizky Setyawan</h1>
+<div class="hero-badge">
+
+Research Portfolio
+
+</div>
+
+<h1>
+
+Rizky
+<span>Setyawan</span>
+
+</h1>
+
+<h2 id="typing">
+
+</h2>
 
 <p>
-Fresh Graduate • Research Assistant • Scientific Data Analysis
+
+Physics undergraduate student with
+research internship experience at BRIN,
+specializing in scientific computing,
+data analysis, and research support.
+
 </p>
 
 <div class="hero-buttons">
 
-<a href="CV-1.pdf" class="btn btn-primary">
+<a href="CV-1.pdf"
+class="btn-primary">
+
 Download CV
+
 </a>
 
-<a href="#about" class="btn btn-outline">
-Learn More
+<a href="#about"
+class="btn-secondary">
+
+Explore
+
 </a>
 
 </div>
@@ -366,99 +151,390 @@ Learn More
 
 </section>
 
+<!-- =========================
+STATS
+========================= -->
 
-<!-- ABOUT -->
+<section class="stats-section">
 
 <div class="container">
 
-<section id="about" class="section">
+<div class="stats-grid">
 
-<div class="card">
+<div class="stat-card">
 
-<h2 class="section-title">
+<h3 class="counter"
+data-target="352">
+
+0
+
+</h3>
+
+<p>
+GPA ×100
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3 class="counter"
+data-target="557">
+
+0
+
+</h3>
+
+<p>
+TOEFL Score
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3 class="counter"
+data-target="6">
+
+0
+
+</h3>
+
+<p>
+Months Internship
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+ABOUT
+========================= -->
+
+<section
+id="about"
+class="section">
+
+<div
+class="container">
+
+<div
+class="glass-card"
+data-aos="fade-up">
+
+<h2>
+
 About Me
+
 </h2>
 
 <p>
 
-I am a Physics undergraduate student at Universitas Negeri Malang with research internship experience at the National Research and Innovation Agency (BRIN).
+I am a Physics undergraduate student at
+Universitas Negeri Malang with research
+internship experience at the National
+Research and Innovation Agency (BRIN).
 
-My experience includes scientific data analysis, technical documentation, computational methods, and research support activities. I am passionate about laboratory analysis, scientific problem solving, quality-oriented workflows, and data-driven decision making.
+My interests include scientific data
+analysis, laboratory support,
+high-performance computing,
+computational physics,
+and research methodology.
+
+I enjoy transforming complex data into
+meaningful scientific insights and
+supporting research activities through
+analytical and technical skills.
 
 </p>
 
 </div>
 
-</section>
-
-
-<!-- EDUCATION -->
-
-<section class="section">
-
-<div class="card">
-
-<h2 class="section-title">
-Education
-</h2>
-
-<h3>
-Universitas Negeri Malang
-</h3>
-
-<p>
-Bachelor of Physics
-<br>
-2022 – Present
-<br>
-GPA: 3.52 / 4.00
-</p>
-
 </div>
 
 </section>
 
+<!-- =========================
+EXPERIENCE
+========================= -->
 
-<!-- EXPERIENCE -->
+<section
+id="experience"
+class="section">
 
-<section class="section">
+<div
+class="container">
 
-<div class="card">
+<h2
+class="section-title">
 
-<h2 class="section-title">
-Research Experience
+Experience
+
 </h2>
 
-<div class="timeline-item">
+<div
+class="timeline">
+
+<div
+class="timeline-item"
+data-aos="fade-right">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-content">
 
 <h3>
-Research Intern — BRIN
+
+Research Intern
+
 </h3>
 
-<p>
-July 2025 – January 2026
-</p>
+<h4>
+
+National Research and
+Innovation Agency (BRIN)
+
+</h4>
+
+<span>
+
+Jul 2025 – Jan 2026
+
+</span>
 
 <ul>
 
 <li>
-Supported scientific research activities through data processing and technical assistance.
+Supported research activities through
+scientific data processing.
 </li>
 
 <li>
-Analyzed and interpreted scientific data.
+Prepared technical reports and
+documentation.
 </li>
 
 <li>
-Prepared technical reports and research documentation.
+Participated in the development of
+Quasi-10 and Quasi-11 HPC clusters.
 </li>
 
 <li>
-Participated in development of Quasi-10 and Quasi-11 HPC clusters.
+Performed Linux-based setup,
+configuration, and troubleshooting.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div
+class="timeline-item"
+data-aos="fade-right">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-content">
+
+<h3>
+
+Scientific Research Project
+
+</h3>
+
+<h4>
+
+Universitas Negeri Malang
+
+</h4>
+
+<span>
+
+2025 – Present
+
+</span>
+
+<ul>
+
+<li>
+Python-based numerical simulations.
 </li>
 
 <li>
-Assisted Linux-based system setup and troubleshooting.
+Scientific data analysis and
+visualization.
+</li>
+
+<li>
+Research reporting and documentation.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+SKILLS
+========================= -->
+
+<section
+id="skills"
+class="section">
+
+<div
+class="container">
+
+<h2
+class="section-title">
+
+Skills
+
+</h2>
+
+<div
+class="skills-grid">
+
+<div
+class="skill-card"
+data-aos="zoom-in">
+
+<i class="fa-solid fa-flask"></i>
+
+<h3>
+
+Laboratory
+
+</h3>
+
+<p>
+
+Documentation,
+Reporting,
+Data Interpretation
+
+</p>
+
+</div>
+
+<div
+class="skill-card"
+data-aos="zoom-in">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h3>
+
+Analysis
+
+</h3>
+
+<p>
+
+Scientific Data Analysis,
+Visualization,
+Research Support
+
+</p>
+
+</div>
+
+<div
+class="skill-card"
+data-aos="zoom-in">
+
+<i class="fa-solid fa-code"></i>
+
+<h3>
+
+Programming
+
+</h3>
+
+<p>
+
+Python,
+NumPy,
+SciPy,
+Matplotlib
+
+</p>
+
+</div>
+
+<div
+class="skill-card"
+data-aos="zoom-in">
+
+<i class="fa-solid fa-server"></i>
+
+<h3>
+
+Computing
+
+</h3>
+
+<p>
+
+Linux,
+Git,
+HPC,
+Scientific Computing
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+LANGUAGES
+========================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div
+class="glass-card"
+data-aos="fade-up">
+
+<h2>
+
+Languages
+
+</h2>
+
+<ul>
+
+<li>
+Indonesian — Native
+</li>
+
+<li>
+English — TOEFL ITP 557
+</li>
+
+<li>
+EF SET 61–70 (CEFR C1 Advanced)
 </li>
 
 </ul>
@@ -469,56 +545,60 @@ Assisted Linux-based system setup and troubleshooting.
 
 </section>
 
+<!-- =========================
+CONTACT
+========================= -->
 
-<!-- SKILLS -->
+<section
+id="contact"
+class="section">
 
-<section class="section">
+<div
+class="container">
 
-<div class="card">
+<div
+class="contact-card">
 
-<h2 class="section-title">
-Skills
+<h2>
+
+Let's Connect
+
 </h2>
 
-<div class="skills-grid">
+<div
+class="contact-grid">
 
-<div class="skill-card">
+<a href="mailto:setya1rizky@email.com">
 
-<h3>
-Laboratory & Analysis
-</h3>
+<i class="fa-solid fa-envelope"></i>
 
-Scientific Data Analysis<br>
-Technical Reporting<br>
-Documentation<br>
-Data Interpretation
+Email
 
-</div>
+</a>
 
-<div class="skill-card">
+<a href="https://github.com/rsetyawan">
 
-<h3>
-Programming
-</h3>
+<i class="fa-brands fa-github"></i>
 
-Python<br>
-NumPy<br>
-SciPy<br>
-Matplotlib
+GitHub
 
-</div>
+</a>
 
-<div class="skill-card">
+<a href="#">
 
-<h3>
-Software & Tools
-</h3>
+<i class="fa-brands fa-linkedin"></i>
 
-Microsoft Office<br>
-Linux<br>
-Git<br>
-LaTeX<br>
-Jupyter Notebook
+LinkedIn
+
+</a>
+
+<a href="#">
+
+<i class="fa-solid fa-globe"></i>
+
+Website
+
+</a>
 
 </div>
 
@@ -528,43 +608,26 @@ Jupyter Notebook
 
 </section>
 
-
-<!-- LANGUAGES -->
-
-<section class="section">
-
-<div class="card">
-
-<h2 class="section-title">
-Languages
-</h2>
-
-<p>
-
-Indonesian — Native
-
-<br><br>
-
-English — TOEFL ITP 557
-
-<br>
-
-EF SET 61–70 (CEFR C1)
-
-</p>
-
-</div>
-
-</section>
-
-</div>
-
+<!-- =========================
+FOOTER
+========================= -->
 
 <footer>
 
+<p>
+
 © 2026 Rizky Setyawan
+
+</p>
 
 </footer>
 
+<script
+src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script
+src="script.js"></script>
+
 </body>
+
 </html>
