@@ -1,32 +1,31 @@
-/* ====================================
-   RIZKY SETYAWAN PORTFOLIO
-   Qatar 2022 × WC 2026
-==================================== */
+/* ========================================
+   ROOT
+======================================== */
 
 :root{
 
---maroon:#8A1538;
---maroon-dark:#5C0E25;
+--bg-1:#020617;
+--bg-2:#0B1026;
+--bg-3:#111827;
 
 --gold:#D4AF37;
---gold-soft:#E6C766;
-
---ivory:#F8F4E9;
+--gold-light:#F2D675;
 
 --cyan:#00D4FF;
---blue:#3B82F6;
+
+--white:#F8FAFC;
 
 --glass:
-rgba(255,255,255,.08);
+rgba(255,255,255,.06);
 
---border:
-rgba(255,255,255,.15);
+--glass-border:
+rgba(255,255,255,.12);
 
 }
 
-/* ====================================
-RESET
-==================================== */
+/* ========================================
+   RESET
+======================================== */
 
 *{
 
@@ -46,52 +45,150 @@ body{
 
 font-family:'Inter',sans-serif;
 
-color:var(--ivory);
-
 background:
 linear-gradient(
--45deg,
-#5C0E25,
-#8A1538,
-#3A163F,
-#111827
+135deg,
+var(--bg-1),
+var(--bg-2),
+var(--bg-3)
 );
 
-background-size:
-400% 400%;
-
-animation:
-gradientMove 18s ease infinite;
+color:var(--white);
 
 overflow-x:hidden;
 
-line-height:1.8;
+line-height:1.7;
+
+position:relative;
 
 }
 
-/* ====================================
-ANIMATED BACKGROUND
-==================================== */
+/* ========================================
+   STARS
+======================================== */
 
-@keyframes gradientMove{
+#stars{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+z-index:-5;
+
+background-image:
+
+radial-gradient(
+circle at 20% 30%,
+rgba(255,255,255,.8) 1px,
+transparent 1px
+),
+
+radial-gradient(
+circle at 80% 40%,
+rgba(255,255,255,.6) 1px,
+transparent 1px
+),
+
+radial-gradient(
+circle at 40% 80%,
+rgba(255,255,255,.7) 1px,
+transparent 1px
+),
+
+radial-gradient(
+circle at 60% 20%,
+rgba(255,255,255,.8) 1px,
+transparent 1px
+);
+
+background-size:
+
+400px 400px,
+500px 500px,
+600px 600px,
+700px 700px;
+
+opacity:.35;
+
+}
+
+/* ========================================
+   SHOOTING STAR
+======================================== */
+
+#shooting-star{
+
+position:fixed;
+
+top:15%;
+left:-250px;
+
+width:180px;
+height:2px;
+
+background:
+linear-gradient(
+90deg,
+white,
+transparent
+);
+
+z-index:-4;
+
+opacity:.5;
+
+animation:
+shootingStar 18s linear infinite;
+
+}
+
+@keyframes shootingStar{
 
 0%{
-background-position:0% 50%;
+
+transform:
+translateX(0)
+translateY(0)
+rotate(25deg);
+
+opacity:0;
+
 }
 
-50%{
-background-position:100% 50%;
+5%{
+
+opacity:1;
+
+}
+
+20%{
+
+opacity:1;
+
 }
 
 100%{
-background-position:0% 50%;
-}
+
+transform:
+translateX(2200px)
+translateY(700px)
+rotate(25deg);
+
+opacity:0;
 
 }
 
-/* ====================================
-PHYSICS EQUATIONS
-==================================== */
+}
+
+/* ========================================
+   FLOATING EQUATIONS
+======================================== */
 
 .physics-bg{
 
@@ -101,7 +198,7 @@ inset:0;
 
 pointer-events:none;
 
-z-index:-2;
+z-index:-3;
 
 overflow:hidden;
 
@@ -111,79 +208,77 @@ overflow:hidden;
 
 position:absolute;
 
-font-size:4rem;
+font-size:3rem;
 
 font-weight:700;
 
 color:
-rgba(255,255,255,.03);
+rgba(255,255,255,.04);
 
 animation:
-floatEquation 25s ease-in-out infinite;
+floatEquation 18s ease-in-out infinite;
 
 }
 
 .physics-bg span:nth-child(1){
-
 top:10%;
-left:8%;
-
+left:5%;
 }
 
 .physics-bg span:nth-child(2){
-
 top:70%;
-left:12%;
-
+left:15%;
 }
 
 .physics-bg span:nth-child(3){
-
-top:25%;
+top:20%;
 right:10%;
-
 }
 
 .physics-bg span:nth-child(4){
-
-bottom:15%;
-right:12%;
-
+top:80%;
+right:15%;
 }
 
 .physics-bg span:nth-child(5){
-
 top:45%;
 left:45%;
-
 }
 
 .physics-bg span:nth-child(6){
+top:15%;
+left:65%;
+}
 
-top:12%;
+.physics-bg span:nth-child(7){
+bottom:10%;
 left:60%;
+}
 
+.physics-bg span:nth-child(8){
+top:55%;
+right:30%;
 }
 
 @keyframes floatEquation{
 
 0%{
-transform:translateY(0px);
+transform:translateY(0);
 }
 
 50%{
-transform:translateY(-30px);
+transform:translateY(-25px);
 }
 
 100%{
-transform:translateY(0px);
+transform:translateY(0);
 }
 
 }
 
-/* ====================================
-SPOTLIGHT
-==================================== */
+/* ========================================
+   SPOTLIGHT
+======================================== */
 
 #spotlight{
 
@@ -197,22 +292,22 @@ border-radius:50%;
 background:
 radial-gradient(
 circle,
-rgba(0,212,255,.18),
+rgba(0,212,255,.10),
 transparent 70%
 );
 
 pointer-events:none;
 
-z-index:-1;
+z-index:-2;
 
 transform:
 translate(-50%,-50%);
 
 }
 
-/* ====================================
-CONTAINER
-==================================== */
+/* ========================================
+   CONTAINER
+======================================== */
 
 .container{
 
@@ -225,17 +320,17 @@ padding:
 
 }
 
-/* ====================================
-NAVBAR
-==================================== */
+/* ========================================
+   NAVBAR
+======================================== */
 
 nav{
 
 position:fixed;
 
-width:100%;
-
 top:0;
+
+width:100%;
 
 z-index:1000;
 
@@ -243,7 +338,7 @@ background:
 rgba(0,0,0,.15);
 
 backdrop-filter:
-blur(15px);
+blur(16px);
 
 border-bottom:
 1px solid rgba(255,255,255,.05);
@@ -256,14 +351,14 @@ max-width:1200px;
 
 margin:auto;
 
+padding:
+18px 24px;
+
 display:flex;
 
 justify-content:space-between;
 
 align-items:center;
-
-padding:
-18px 24px;
 
 }
 
@@ -291,25 +386,24 @@ list-style:none;
 
 nav a{
 
-color:var(--ivory);
-
 text-decoration:none;
 
-font-weight:500;
+color:var(--white);
 
 transition:.3s;
 
 }
 
-nav a:hover{
+nav a:hover,
+.active-link{
 
 color:var(--gold);
 
 }
 
-/* ====================================
-HERO
-==================================== */
+/* ========================================
+   HERO
+======================================== */
 
 .hero{
 
@@ -323,13 +417,14 @@ justify-content:center;
 
 text-align:center;
 
-padding:100px 20px;
+padding:
+100px 20px;
 
 }
 
 .hero-content{
 
-max-width:900px;
+max-width:850px;
 
 }
 
@@ -338,15 +433,15 @@ max-width:900px;
 display:inline-block;
 
 padding:
-10px 20px;
-
-border-radius:50px;
+10px 22px;
 
 background:
 rgba(255,255,255,.08);
 
 border:
-1px solid rgba(255,255,255,.15);
+1px solid var(--glass-border);
+
+border-radius:999px;
 
 margin-bottom:25px;
 
@@ -364,7 +459,7 @@ margin-bottom:10px;
 
 }
 
-.hero h1 span{
+.hero span{
 
 color:var(--gold);
 
@@ -374,7 +469,7 @@ color:var(--gold);
 
 height:50px;
 
-font-size:1.5rem;
+font-size:1.4rem;
 
 font-weight:600;
 
@@ -386,11 +481,7 @@ margin-bottom:20px;
 
 .hero p{
 
-font-size:1.15rem;
-
-max-width:700px;
-
-margin:auto;
+font-size:1.1rem;
 
 opacity:.9;
 
@@ -398,9 +489,9 @@ margin-bottom:35px;
 
 }
 
-/* ====================================
-BUTTONS
-==================================== */
+/* ========================================
+   BUTTONS
+======================================== */
 
 .hero-buttons{
 
@@ -420,20 +511,19 @@ background:
 linear-gradient(
 135deg,
 var(--gold),
-var(--gold-soft)
+var(--gold-light)
 );
 
-color:
-var(--maroon-dark);
+color:#111;
+
+font-weight:700;
+
+text-decoration:none;
 
 padding:
 14px 30px;
 
-border-radius:40px;
-
-text-decoration:none;
-
-font-weight:700;
+border-radius:999px;
 
 transition:.3s;
 
@@ -442,24 +532,23 @@ transition:.3s;
 .btn-primary:hover{
 
 transform:
-translateY(-5px);
+translateY(-4px);
 
 }
 
 .btn-secondary{
 
 border:
-2px solid var(--gold);
-
-color:
-var(--ivory);
+1px solid var(--gold);
 
 padding:
 14px 30px;
 
-border-radius:40px;
+border-radius:999px;
 
 text-decoration:none;
+
+color:var(--white);
 
 transition:.3s;
 
@@ -468,17 +557,61 @@ transition:.3s;
 .btn-secondary:hover{
 
 background:
-rgba(255,255,255,.08);
+rgba(255,255,255,.06);
 
 }
 
-/* ====================================
-STATS
-==================================== */
+/* ========================================
+   SECTIONS
+======================================== */
+
+.section{
+
+padding:
+110px 0;
+
+}
+
+.section-title{
+
+text-align:center;
+
+font-size:2.5rem;
+
+margin-bottom:50px;
+
+color:var(--gold);
+
+}
+
+/* ========================================
+   GLASS CARD
+======================================== */
+
+.glass-card{
+
+background:
+var(--glass);
+
+border:
+1px solid var(--glass-border);
+
+backdrop-filter:
+blur(15px);
+
+padding:40px;
+
+border-radius:24px;
+
+}
+
+/* ========================================
+   STATS
+======================================== */
 
 .stats-section{
 
-margin-top:-100px;
+margin-top:-70px;
 
 }
 
@@ -498,17 +631,26 @@ gap:25px;
 background:
 var(--glass);
 
+border:
+1px solid var(--glass-border);
+
 backdrop-filter:
-blur(15px);
+blur(12px);
 
 padding:30px;
 
-border-radius:25px;
-
-border:
-1px solid var(--border);
-
 text-align:center;
+
+border-radius:24px;
+
+transition:.3s;
+
+}
+
+.stat-card:hover{
+
+transform:
+translateY(-6px);
 
 }
 
@@ -520,62 +662,52 @@ color:var(--gold);
 
 }
 
-/* ====================================
-SECTIONS
-==================================== */
+/* ========================================
+   RESEARCH INTERESTS
+======================================== */
 
-.section{
+.interest-grid{
 
-padding:
-100px 0;
+display:grid;
 
-}
+grid-template-columns:
+repeat(3,1fr);
 
-.section-title{
-
-text-align:center;
-
-font-size:2.5rem;
-
-margin-bottom:50px;
-
-color:var(--gold);
+gap:20px;
 
 }
 
-/* ====================================
-GLASS CARD
-==================================== */
-
-.glass-card{
+.interest-card{
 
 background:
 var(--glass);
 
-backdrop-filter:
-blur(15px);
-
-padding:40px;
-
-border-radius:25px;
-
 border:
-1px solid var(--border);
+1px solid var(--glass-border);
 
-transition:.4s;
+padding:25px;
+
+text-align:center;
+
+border-radius:20px;
+
+transition:.3s;
 
 }
 
-.glass-card:hover{
+.interest-card:hover{
 
 transform:
-translateY(-5px);
+translateY(-6px);
+
+border-color:
+var(--gold);
 
 }
 
-/* ====================================
-TIMELINE
-==================================== */
+/* ========================================
+   TIMELINE
+======================================== */
 
 .timeline{
 
@@ -597,7 +729,7 @@ left:20px;
 
 top:0;
 
-width:3px;
+width:2px;
 
 height:100%;
 
@@ -616,7 +748,7 @@ position:relative;
 
 padding-left:70px;
 
-margin-bottom:60px;
+margin-bottom:50px;
 
 }
 
@@ -624,12 +756,12 @@ margin-bottom:60px;
 
 position:absolute;
 
-left:8px;
+left:10px;
 
-top:5px;
+top:10px;
 
-width:25px;
-height:25px;
+width:22px;
+height:22px;
 
 background:
 var(--gold);
@@ -637,7 +769,7 @@ var(--gold);
 border-radius:50%;
 
 box-shadow:
-0 0 15px rgba(212,175,55,.7);
+0 0 15px rgba(212,175,55,.4);
 
 }
 
@@ -646,12 +778,12 @@ box-shadow:
 background:
 var(--glass);
 
+border:
+1px solid var(--glass-border);
+
 padding:30px;
 
 border-radius:20px;
-
-border:
-1px solid var(--border);
 
 }
 
@@ -663,23 +795,9 @@ margin-bottom:5px;
 
 }
 
-.timeline-content h4{
-
-margin-bottom:10px;
-
-}
-
-.timeline-content span{
-
-opacity:.8;
-
-font-size:.9rem;
-
-}
-
-/* ====================================
-SKILLS
-==================================== */
+/* ========================================
+   SKILLS
+======================================== */
 
 .skills-grid{
 
@@ -697,26 +815,23 @@ gap:25px;
 background:
 var(--glass);
 
+border:
+1px solid var(--glass-border);
+
 padding:35px;
 
-border-radius:25px;
-
-border:
-1px solid var(--border);
+border-radius:24px;
 
 text-align:center;
 
-transition:.4s;
+transition:.3s;
 
 }
 
 .skill-card:hover{
 
 transform:
-translateY(-10px);
-
-box-shadow:
-0 0 30px rgba(0,212,255,.2);
+translateY(-8px);
 
 }
 
@@ -724,33 +839,33 @@ box-shadow:
 
 font-size:2rem;
 
-margin-bottom:15px;
-
 color:var(--gold);
+
+margin-bottom:15px;
 
 }
 
 .skill-card h3{
 
-margin-bottom:15px;
+margin-bottom:10px;
 
 }
 
-/* ====================================
-CONTACT
-==================================== */
+/* ========================================
+   CONTACT
+======================================== */
 
 .contact-card{
 
 background:
 var(--glass);
 
+border:
+1px solid var(--glass-border);
+
 padding:50px;
 
 border-radius:30px;
-
-border:
-1px solid var(--border);
 
 text-align:center;
 
@@ -758,9 +873,9 @@ text-align:center;
 
 .contact-card h2{
 
-margin-bottom:35px;
-
 color:var(--gold);
+
+margin-bottom:30px;
 
 }
 
@@ -777,16 +892,16 @@ gap:20px;
 
 .contact-grid a{
 
-text-decoration:none;
-
-color:var(--ivory);
-
-padding:25px;
-
 background:
 rgba(255,255,255,.05);
 
-border-radius:20px;
+text-decoration:none;
+
+color:var(--white);
+
+padding:25px;
+
+border-radius:18px;
 
 transition:.3s;
 
@@ -795,10 +910,7 @@ transition:.3s;
 .contact-grid a:hover{
 
 transform:
-translateY(-5px);
-
-background:
-rgba(255,255,255,.1);
+translateY(-6px);
 
 }
 
@@ -806,17 +918,17 @@ rgba(255,255,255,.1);
 
 display:block;
 
-font-size:1.5rem;
-
-margin-bottom:10px;
+font-size:1.6rem;
 
 color:var(--gold);
 
+margin-bottom:10px;
+
 }
 
-/* ====================================
-FOOTER
-==================================== */
+/* ========================================
+   FOOTER
+======================================== */
 
 footer{
 
@@ -824,39 +936,13 @@ padding:40px;
 
 text-align:center;
 
-opacity:.8;
+opacity:.7;
 
 }
 
-/* ====================================
-SCROLLBAR
-==================================== */
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:
-var(--maroon-dark);
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:
-var(--gold);
-
-border-radius:20px;
-
-}
-
-/* ====================================
-RESPONSIVE
-==================================== */
+/* ========================================
+   RESPONSIVE
+======================================== */
 
 @media(max-width:900px){
 
@@ -866,6 +952,8 @@ font-size:3.5rem;
 
 }
 
+.stats-grid,
+.interest-grid,
 .skills-grid{
 
 grid-template-columns:1fr;
@@ -876,12 +964,6 @@ grid-template-columns:1fr;
 
 grid-template-columns:
 repeat(2,1fr);
-
-}
-
-.stats-grid{
-
-grid-template-columns:1fr;
 
 }
 
@@ -901,21 +983,9 @@ font-size:2.8rem;
 
 }
 
-.hero h2{
-
-font-size:1.1rem;
-
-}
-
 .contact-grid{
 
 grid-template-columns:1fr;
-
-}
-
-.timeline-item{
-
-padding-left:55px;
 
 }
 
