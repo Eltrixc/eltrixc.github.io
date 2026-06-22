@@ -1,12 +1,10 @@
-/* ======================================
+/* =====================================
    SMOOTH SCROLL
-====================================== */
+===================================== */
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-    anchor.addEventListener("click", function(e) {
-
-        e.preventDefault();
+    link.addEventListener("click", function(e){
 
         const target =
         document.querySelector(
@@ -14,6 +12,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         );
 
         if(target){
+
+            e.preventDefault();
 
             target.scrollIntoView({
 
@@ -28,79 +28,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
-/* ======================================
-   ACTIVE NAV LINK
-====================================== */
 
-const sections =
-document.querySelectorAll("section");
+/* =====================================
+   NAVBAR SHADOW ON SCROLL
+===================================== */
 
-const navLinks =
-document.querySelectorAll("nav ul li a");
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop =
-        section.offsetTop - 120;
-
-        const sectionHeight =
-        section.clientHeight;
-
-        if(
-
-            pageYOffset >= sectionTop
-
-            &&
-
-            pageYOffset <
-            sectionTop + sectionHeight
-
-        ){
-
-            current = section.getAttribute("id");
-
-        }
-
-    });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if(
-
-            link.getAttribute("href")
-            ===
-            "#" + current
-
-        ){
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
-
-
-/* ======================================
-   NAVBAR SHADOW
-====================================== */
 
 const navbar =
 document.querySelector("nav");
 
-window.addEventListener("scroll", () => {
 
-    if(window.scrollY > 50){
+window.addEventListener("scroll",()=>{
+
+
+    if(window.scrollY > 40){
 
         navbar.style.boxShadow =
-        "0 4px 20px rgba(0,0,0,0.08)";
+        "0 8px 25px rgba(15,23,42,.12)";
 
     }
 
@@ -111,127 +55,225 @@ window.addEventListener("scroll", () => {
 
     }
 
+
 });
 
 
-/* ======================================
-   SCROLL REVEAL
-====================================== */
 
-const revealElements =
+
+
+/* =====================================
+   ACTIVE NAVIGATION
+===================================== */
+
+
+const sections =
+document.querySelectorAll("section");
+
+
+const navLinks =
 document.querySelectorAll(
-
-    ".card, .experience-card"
-
+"nav a"
 );
 
-const observer =
-new IntersectionObserver(
 
-(entries) => {
 
-    entries.forEach(entry => {
+window.addEventListener(
+"scroll",
+()=>{
 
-        if(entry.isIntersecting){
 
-            entry.target.classList.add("show");
+let current="";
 
-        }
 
-    });
+sections.forEach(section=>{
 
-},
 
-{
+const top =
+section.offsetTop - 120;
 
-    threshold:0.15
+
+if(
+scrollY >= top
+){
+
+current =
+section.id;
 
 }
 
-);
-
-revealElements.forEach(el => {
-
-    observer.observe(el);
 
 });
 
 
-/* ======================================
-   COUNTER ANIMATION
-====================================== */
 
-const counters =
-document.querySelectorAll(".counter");
+navLinks.forEach(link=>{
 
-const speed = 150;
 
-const counterObserver =
+link.classList.remove(
+"active"
+);
+
+
+
+if(
+link.getAttribute("href")
+===
+"#"+current
+){
+
+link.classList.add(
+"active"
+);
+
+}
+
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+/* =====================================
+   FADE IN ANIMATION
+===================================== */
+
+
+const revealItems =
+document.querySelectorAll(
+".card"
+);
+
+
+
+const observer =
 new IntersectionObserver(
+(entries)=>{
 
-(entries) => {
 
-entries.forEach(entry => {
+entries.forEach(entry=>{
+
 
 if(entry.isIntersecting){
 
-const counter =
-entry.target;
+
+entry.target.classList.add(
+"show"
+);
+
+
+}
+
+
+
+});
+
+
+},
+{
+
+threshold:0.15
+
+});
+
+
+
+revealItems.forEach(item=>{
+
+
+item.classList.add(
+"hidden"
+);
+
+
+observer.observe(item);
+
+
+});
+
+
+
+
+
+
+
+/* =====================================
+   HIGHLIGHT COUNTER
+===================================== */
+
+
+const counters =
+document.querySelectorAll(
+".counter"
+);
+
+
+
+counters.forEach(counter=>{
+
+
+counter.innerText="0";
+
+
+
+const updateCounter = ()=>{
+
 
 const target =
 +counter.dataset.target;
 
-const updateCount = () => {
 
-const count =
+const current =
 +counter.innerText;
 
-const increment =
-target / speed;
 
-if(count < target){
+
+const increment =
+target / 80;
+
+
+
+if(current < target){
+
 
 counter.innerText =
 Math.ceil(
-count + increment
+current + increment
 );
 
+
 setTimeout(
-updateCount,
-10
+updateCounter,
+20
 );
+
 
 }
 
 else{
 
+
 counter.innerText =
 target;
 
+
 }
+
+
 
 };
 
-updateCount();
 
-counterObserver.unobserve(counter);
 
-}
+updateCounter();
 
-});
 
-},
-
-{
-
-threshold:0.5
-
-}
-
-);
-
-counters.forEach(counter => {
-
-counterObserver.observe(counter);
 
 });
